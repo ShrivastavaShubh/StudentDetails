@@ -1,0 +1,40 @@
+<form [formGroup]="upload">
+<div class="container">
+    <div class="row">
+      <div class="col-md-6"><button mat-raised-button (click)="addmoreFile1.click()">Upload</button>
+        <input formControlName="image" #addmoreFile1 (change)="fileChangeEvent($event)" type="file" multiple class="custom-file-input"
+          name="Image" style="display: none;">
+        <div class="col-md-3 mt-1 mb-5 justify-content-center " *ngIf="image">
+          <mat-icon style="float: right;" matSuffix><span class="material-icons" style="color:red; cursor: pointer;"
+              (click)="delete(true)">
+              close
+            </span>
+          </mat-icon>
+          <img [src]="image" alt="Avatar" height="200">
+        </div>
+      </div>
+      <div class="col-md-6"><button mat-raised-button (click)="addmoreFile2.click()">Signature</button>
+        <input formControlName="sign" #addmoreFile2 (change)="fileChangeEvent1($event)" type="file" class="custom-file-input  form-control"
+          name="sign" style="display: none;">
+          <span></span>
+        <div *ngIf="sign" class="col-md-3 mt-1 mb-5 justify-content-center">
+          <mat-icon style="float: right;" matSuffix><span class="material-icons" style="color:red; cursor: pointer;"
+              (click)="delete(false)">
+              close
+            </span>
+          </mat-icon>
+          <img [src]="sign" alt="Avatar" height="200">
+        </div>
+      </div>
+      <div class="col-md-6"> <span class="err" *ngIf="hasAdd && !img1">
+        Signature is required
+      </span></div>
+      <div class="col-md-6"> <span class="err" *ngIf="hasAdd && !sin1">
+        Signature is required
+      </span></div>
+      <div class="col-md-6">
+        <button type="submit" mat-raised-button color="primary" class="mt-2" (click)="document()">Next</button>
+      </div>
+    </div>
+  </div>
+</form>
