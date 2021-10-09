@@ -12,9 +12,29 @@
 }
 .container
 {
-  border: 2px solid #ef4552;
-  padding: 18px;
+  background: white;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+    transform: translate(9%, 19%);
+    padding: 64px;
   margin-top: 2rem;
+}
+
+.nav-tabs{
+  margin-top: 3%;
+  border: none;
+  border-radius: 1.5rem;
+  width: 28%;
+  float: right;
+}
+.click
+{
+  background: #0062cc;
+  color: white;
+}
+.click1
+{
+  background: #0062cc;
 }
 .inpt
 {

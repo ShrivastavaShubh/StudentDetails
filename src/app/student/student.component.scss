@@ -12,8 +12,11 @@
 }
 .container
 {
-  border: 2px solid #ef4552;
-  padding: 18px;
+  background: white;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+    transform: translate(9%, 37%);
+    padding: 64px;
   margin-top: 2rem;
 }
 .inpt

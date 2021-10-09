@@ -1,8 +1,10 @@
-   <div class="container">
+
+  <div class="container">
+    <h1>Personal Details</h1>
       <form [formGroup]="studentInfo" (ngSubmit)="goToAddress()">
         <div class="row">
-          <div class="col-md-6">
-            <mat-form-field class="inpt" appearance="outline">
+          <div class="col-md-4">
+            <mat-form-field class="inpt" appearance="standard">
               <mat-label>Enter First Name</mat-label>
               <input matInput formControlName="fname" [ngClass]="{ 'is-invalid': isvalid && f.fname.errors }">
               <mat-error *ngIf="isvalid && f.fname.errors">
@@ -10,8 +12,8 @@
               </mat-error>
             </mat-form-field>
           </div>
-          <div class="col-md-6">
-            <mat-form-field class="inpt" appearance="outline">
+          <div class="col-md-4">
+            <mat-form-field class="inpt" appearance="standard">
               <mat-label>Enter Middle Name</mat-label>
               <input matInput formControlName="mname" [ngClass]="{ 'is-invalid': isvalid && f.mname.errors }">
               <mat-error *ngIf="isvalid && f.mname.errors">
@@ -19,10 +21,9 @@
               </mat-error>
             </mat-form-field>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <mat-form-field class="inpt" appearance="outline">
+       
+          <div class="col-md-4">
+            <mat-form-field class="inpt" appearance="standard">
               <mat-label>Enter Last Name</mat-label>
               <input matInput formControlName="lname" [ngClass]="{ 'is-invalid': isvalid && f.lname.errors }">
               <mat-error *ngIf="isvalid && f.lname.errors">
@@ -30,7 +31,33 @@
               </mat-error>
             </mat-form-field>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
+            <mat-form-field color="accent" appearance="standard">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName="dob">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="inpt" appearance="standard">
+              <mat-label>Enter Age</mat-label>
+              <input matInput formControlName="age">
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="inpt" appearance="standard">
+              <mat-label>Enter Mobile </mat-label>
+              <input matInput formControlName="mobile">
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="inpt" appearance="standard">
+              <mat-label>Enter Email</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
             <label id="lbl">Gender</label>
             <mat-radio-group aria-label="Gender" class="radio-grp" formControlName="gender" [ngClass]="{ 'is-invalid': isvalid && f.gender.errors }">
               <mat-radio-button value="Male" class="radio-button">Male</mat-radio-button>
@@ -41,39 +68,7 @@
               </mat-error>
             </mat-radio-group>
           </div>
-
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <mat-form-field color="accent" appearance="fill">
-              <mat-label>Date of Birth</mat-label>
-              <input matInput [matDatepicker]="picker1" formControlName="dob">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <mat-form-field class="inpt" appearance="outline">
-              <mat-label>Enter Age</mat-label>
-              <input matInput formControlName="age">
-            </mat-form-field>
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <mat-form-field class="inpt" appearance="outline">
-              <mat-label>Enter Mobile </mat-label>
-              <input matInput formControlName="mobile">
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <mat-form-field class="inpt" appearance="outline">
-              <mat-label>Enter Email</mat-label>
-              <input matInput formControlName="email">
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
+          <div class="col-md-12">
             <button type="submit" mat-raised-button color="primary">Next</button>
           </div>
         </div>

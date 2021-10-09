@@ -23,9 +23,18 @@ export class AddressComponent implements OnInit {
   id: any;
   studId: any;
   checked = false;
+  showHide=true;
   constructor(public avtive: ActivatedRoute, public fb: FormBuilder, public student: StudentService, public router: Router) {
     this.studId = this.avtive.snapshot.params.id;
   }
+show()
+{
+this.showHide=true;
+}
+hide()
+{
+  this.showHide=false;
+}
 
   ngOnInit(): void {
     this.address = this.fb.group({

@@ -23,6 +23,7 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule } from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatToolbarModule} from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     StudentdetailsComponent
   ],
   imports: [
+    MatToolbarModule,
     MatCheckboxModule,
     MatDialogModule,
     MatTableModule,

@@ -1,76 +1,18 @@
 <div class="container">
+  <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+    <li class="nav-item">
+      <button class="btn" (click)="show()" [ngClass]="{'click':showHide}">Permanent Address</button>
+    </li>
+    <li class="nav-item">
+       <button class="btn" (click)="hide()" [ngClass]="{'click':!showHide}">Temporary Address</button>
+    </li>
+</ul>
       <form [formGroup]="address">
-        <div >
-          <h1>Temporary Address</h1>
-          <div class="row">
-            <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
-                <mat-label>State</mat-label>
-                <mat-select name="state" formControlName="state" [ngClass]="{ 'is-invalid': hasAdd && T.state.errors }">
-                  <mat-option *ngFor="let state of stateList" [value]="state.isoCode"> {{ state?.name }}</mat-option>
-                </mat-select>
-                <mat-error *ngIf="hasAdd && T.state.errors">
-                  <div *ngIf="T.state.errors.required">State is required</div>
-                </mat-error>
-              </mat-form-field>
-            </div> 
-            <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
-                <mat-label>City</mat-label>
-                <mat-select formControlName="city" [ngClass]="{ 'is-invalid': hasAdd && T.city.errors }">
-                  <mat-option *ngFor="let city of cityList1" [value]="city.name"> {{ city?.name }}</mat-option>
-                </mat-select>
-                <mat-error *ngIf="hasAdd && T.city.errors">
-                  <div class="city" *ngIf="T.city.errors.required">City is required</div>
-                </mat-error>
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
-                <mat-label>Street</mat-label>
-                <input matInput formControlName="street" [ngClass]="{ 'is-invalid': hasAdd && T.street.errors }">
-                <mat-error *ngIf="hasAdd && T.street.errors">
-                  <div class="street" *ngIf="T.street.errors.required">Street is required</div>
-                </mat-error>
-              </mat-form-field>
-            </div>
-            <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
-                <mat-label>Pincode</mat-label>
-                <input matInput formControlName="pincode" [ngClass]="{ 'is-invalid': hasAdd && T.pincode.errors }">
-                <mat-error *ngIf="hasAdd && T.pincode.errors">
-                  <div *ngIf="T.pincode.errors.required">Pincode is required</div>
-                </mat-error>
-              </mat-form-field>
-            </div>
-            <div class="col-md-8">
-              <mat-form-field class="inpt" class="textfield" appearance="outline">
-                <mat-label>Area</mat-label>
-                <textarea matInput formControlName="area" [ngClass]="{ 'is-invalid': hasAdd && T.area.errors }"></textarea>
-                <mat-error *ngIf="hasAdd && T.area.errors">
-                  <div  *ngIf="T.area.errors.required">Area is required</div>
-                </mat-error>
-              </mat-form-field>
-            </div>
-            <div class="col-md-8">
-              <mat-form-field class="inpt" class="textfield" appearance="outline">
-                <mat-label>Address</mat-label>
-                <textarea matInput formControlName="address" [ngClass]="{ 'is-invalid': hasAdd && T.address.errors }"></textarea>
-                <mat-error *ngIf="hasAdd && T.address.errors">
-                  <div  *ngIf="T.area.errors.required">Address is required</div>
-                </mat-error>
-              </mat-form-field>
-            </div>
-          </div>
-<div class="col-md-12"> <mat-checkbox class="example-margin" (change)="showOptions($event)">Same As Temporary Address</mat-checkbox></div>
-        </div>
-        <div>
+        <div *ngIf="showHide">
           <h1>Permanent Address</h1>
           <div class="row">
             <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
+              <mat-form-field class="inpt" appearance="standard">
                 <mat-label>State</mat-label>
                 <mat-select name="state" formControlName="state1" [ngClass]="{ 'is-invalid': hasAdd && T.state1.errors }">
                   <mat-option *ngFor="let state of stateList" [value]="state.isoCode"> {{ state?.name }}</mat-option>
@@ -81,7 +23,7 @@
               </mat-form-field>
             </div> 
             <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
+              <mat-form-field class="inpt" appearance="standard">
                 <mat-label>City</mat-label>
                 <mat-select formControlName="city1" [ngClass]="{ 'is-invalid': hasAdd && T.city1.errors }">
                   <mat-option *ngFor="let city of cityList2" [value]="city.name"> {{ city?.name }}</mat-option>
@@ -91,10 +33,9 @@
                 </mat-error>
               </mat-form-field>
             </div>
-          </div>
-          <div class="row">
+    
             <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
+              <mat-form-field class="inpt" appearance="standard">
                 <mat-label>Street</mat-label>
                 <input matInput formControlName="street1" [ngClass]="{ 'is-invalid': hasAdd && T.street1.errors }">
                 <mat-error *ngIf="hasAdd && T.street1.errors">
@@ -103,7 +44,7 @@
               </mat-form-field>
             </div>
             <div class="col-md-6">
-              <mat-form-field class="inpt" appearance="outline">
+              <mat-form-field class="inpt" appearance="standard">
                 <mat-label>Pincode</mat-label>
                 <input matInput formControlName="pincode1" [ngClass]="{ 'is-invalid': hasAdd && T.pincode1.errors }">
                 <mat-error *ngIf="hasAdd && T.pincode1.errors">
@@ -112,7 +53,7 @@
               </mat-form-field>
             </div>
             <div class="col-md-8">
-              <mat-form-field class="inpt" class="textfield" appearance="outline">
+              <mat-form-field class="inpt" class="textfield" appearance="standard">
                 <mat-label>Area</mat-label>
                 <textarea matInput formControlName="area1" [ngClass]="{ 'is-invalid': hasAdd && T.area1.errors }"></textarea>
                 <mat-error *ngIf="hasAdd && T.area1.errors">
@@ -121,7 +62,7 @@
               </mat-form-field>
             </div>
             <div class="col-md-8">
-              <mat-form-field class="inpt" class="textfield" appearance="outline">
+              <mat-form-field class="inpt" class="textfield" appearance="standard">
                 <mat-label>Address</mat-label>
                 <textarea matInput formControlName="address1" [ngClass]="{ 'is-invalid': hasAdd && T.address1.errors }"></textarea>
                 <mat-error *ngIf="hasAdd && T.address1.errors">
@@ -129,9 +70,74 @@
                 </mat-error>
               </mat-form-field>
             </div>
-            <div class="col-md-12">
-              <button mat-raised-button color="primary" (click)="goToUpload()">Next</button>
+          </div>
+          <div class="col-md-12"> <mat-checkbox class="example-margin" (change)="showOptions($event)">Temporary Address Same As Permanent Address</mat-checkbox></div>
+        </div>
+        <div *ngIf=!showHide>
+          <h1>Temporary Address</h1>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="inpt" appearance="standard">
+                <mat-label>State</mat-label>
+                <mat-select name="state" formControlName="state" [ngClass]="{ 'is-invalid': hasAdd && T.state.errors }">
+                  <mat-option *ngFor="let state of stateList" [value]="state.isoCode"> {{ state?.name }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasAdd && T.state.errors">
+                  <div *ngIf="T.state.errors.required">State is required</div>
+                </mat-error>
+              </mat-form-field>
+            </div> 
+            <div class="col-md-6">
+              <mat-form-field class="inpt" appearance="standard">
+                <mat-label>City</mat-label>
+                <mat-select formControlName="city" [ngClass]="{ 'is-invalid': hasAdd && T.city.errors }">
+                  <mat-option *ngFor="let city of cityList1" [value]="city.name"> {{ city?.name }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasAdd && T.city.errors">
+                  <div class="city" *ngIf="T.city.errors.required">City is required</div>
+                </mat-error>
+              </mat-form-field>
             </div>
+          
+            <div class="col-md-6">
+              <mat-form-field class="inpt" appearance="standard">
+                <mat-label>Street</mat-label>
+                <input matInput formControlName="street" [ngClass]="{ 'is-invalid': hasAdd && T.street.errors }">
+                <mat-error *ngIf="hasAdd && T.street.errors">
+                  <div class="street" *ngIf="T.street.errors.required">Street is required</div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="inpt" appearance="standard">
+                <mat-label>Pincode</mat-label>
+                <input matInput formControlName="pincode" [ngClass]="{ 'is-invalid': hasAdd && T.pincode.errors }">
+                <mat-error *ngIf="hasAdd && T.pincode.errors">
+                  <div *ngIf="T.pincode.errors.required">Pincode is required</div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-8">
+              <mat-form-field class="inpt" class="textfield" appearance="standard">
+                <mat-label>Area</mat-label>
+                <textarea matInput formControlName="area" [ngClass]="{ 'is-invalid': hasAdd && T.area.errors }"></textarea>
+                <mat-error *ngIf="hasAdd && T.area.errors">
+                  <div  *ngIf="T.area.errors.required">Area is required</div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-8">
+              <mat-form-field class="inpt" class="textfield" appearance="standard">
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="address" [ngClass]="{ 'is-invalid': hasAdd && T.address.errors }"></textarea>
+                <mat-error *ngIf="hasAdd && T.address.errors">
+                  <div  *ngIf="T.area.errors.required">Address is required</div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button mat-raised-button color="primary" (click)="goToUpload()">Next</button>
           </div>
         </div>
       </form>
